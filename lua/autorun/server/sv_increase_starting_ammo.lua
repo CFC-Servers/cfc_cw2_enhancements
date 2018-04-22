@@ -12,7 +12,7 @@ local function giveCW2AmmoOnSpawn( player )
 		for _, weapon in pairs(player:GetWeapons()) do
 			local isCW2Weapon = string.sub(weapon:GetClass(), 1, 2) == "cw"
 			if ( isCW2Weapon ) then
-				givePlayerAmmoforWeapon( player, weapon )
+				givePlayerAmmoForWeapon( player, weapon )
 			end
 		end
 	end)
