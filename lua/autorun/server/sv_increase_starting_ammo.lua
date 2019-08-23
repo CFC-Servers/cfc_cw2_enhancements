@@ -20,22 +20,22 @@ local function isCW2Weapon( wep )
     return string.sub( weapon:GetClass(), 1, 3 ) == "cw_"
 end
 
-local function givePlayerAmmoForWeapon( ply, weapon )
-    local ammoType = weapon:GetPrimaryAmmoType()
+local function givePlayerAmmoForWeapon( ply, wep )
+    local ammoType = wep:GetPrimaryAmmoType()
     local currentAmmo = ply:GetAmmoCount( ammoType )
 
-    if currentAmmo <= weapon:Clip1() then
+    if currentAmmo <= wep:Clip1() then
         ply:GiveAmmo( 256, ammoType, false )
     end
 end
 
 local function giveCW2AmmoOnSpawn( ply )
     timer.Simple( 0, function()
-        for _, weapon in pairs( ply:GetWeapons() ) do
-            local isCW2Weapon = isCW2Weapon( weapon )
+        for _, wep in pairs( ply:GetWeapons() ) do
+            local isCW2Weapon = isCW2Weapon( wep )
 
             if isCW2Weapon then
-                givePlayerAmmoForWeapon( ply, weapon )
+                givePlayerAmmoForWeapon( ply, wep )
             end
         end
     end )
