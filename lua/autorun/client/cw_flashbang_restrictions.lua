@@ -1,20 +1,20 @@
 local PLAYER = FindMetaTable("Player")
 
-local function wrapCwFlashbang() 
+local function wrapCwFlashbang()
     local flash = PLAYER.cwFlashbang
-    PLAYER.cwFlashbang = function(self, intensity, duration) 
+    PLAYER.cwFlashbang = function(self, intensity, duration)
         local inPvp = ply:GetNWBool("CFC_PvP_Mode", false)
         if not inPvp then return end
-        
+
         return flash(self, intensity, duration)
     end
 end
 
-local function waitingFor() 
+local function waitingFor()
     return PLAYER.cwFlashbang ~= nil
 end
 
-local function onTimout() 
+local function onTimout()
     print("flashbang wrapper timed out")
 end
 
