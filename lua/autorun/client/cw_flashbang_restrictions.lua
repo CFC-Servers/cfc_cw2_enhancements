@@ -4,7 +4,7 @@ local function wrapCwFlashbang()
     local flash = PLAYER.cwFlashbang
     PLAYER.cwFlashbang = function(self, intensity, duration) 
         local inPvp = ply:GetNWBool("CFC_PvP_Mode", false)
-        if !inPvp then return end
+        if not inPvp then return end
         
         return flash(self, intensity, duration)
     end
