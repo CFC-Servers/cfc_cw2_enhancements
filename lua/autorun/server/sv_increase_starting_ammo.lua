@@ -3,7 +3,7 @@ local function givePlayerAmmoForWeapon( player, weapon )
     local ammoType = weapon:GetPrimaryAmmoType()
     local currentAmmo = player:GetAmmoCount( ammoType )
     if ( currentAmmo == 0 ) then
-        player:GiveAmmo( "90", ammoType, false )
+        player:GiveAmmo( 90, ammoType, false )
     end
 end
 
