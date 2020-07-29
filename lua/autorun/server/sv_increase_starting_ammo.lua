@@ -1,4 +1,4 @@
-BlacklistedAmmo = { 
+local blacklistedAmmo = {
     ["Smoke Grenades"] = true,
     ["Flash Grenades"] = true,
     ["Frag Grenades"] = true,
@@ -7,11 +7,11 @@ BlacklistedAmmo = {
 }
 
 function givePlayerCWAmmo(Ply)
-    for AmmoName, bulletInfo in pairs(CustomizableWeaponry.ammoTypes) do
-        if not BlacklistedAmmo[AmmoName] then
-            Ply:SetAmmo(1000,AmmoName)
+    for ammoName, bulletInfo in pairs( CustomizableWeaponry.ammoTypes ) do
+        if not blacklistedAmmo[ammoName] then
+            Ply:SetAmmo( 1000, ammoName )
         end
     end
 end
 
-hook.Add("PlayerSpawn", "CFC-Give-CW2-Ammo", givePlayerCWAmmo)
+hook.Add( "PlayerSpawn", "CFC_CWEnhancements_GiveCW2Ammo", givePlayerCWAmmo )
