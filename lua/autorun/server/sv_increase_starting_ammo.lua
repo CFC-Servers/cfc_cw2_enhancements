@@ -6,10 +6,10 @@ local blacklistedAmmo = {
     -- we don't actually have to add RPG ammo here
 }
 
-function givePlayerCWAmmo(Ply)
+function givePlayerCWAmmo( ply )
     for ammoName, bulletInfo in pairs( CustomizableWeaponry.ammoTypes ) do
         if not blacklistedAmmo[ammoName] then
-            Ply:SetAmmo( 1000, ammoName )
+            ply:SetAmmo( 1000, ammoName )
         end
     end
 end
