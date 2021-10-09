@@ -3,8 +3,7 @@ local PLAYER = FindMetaTable( "Player" )
 local function wrapCwFlashbang()
     local flash = PLAYER.cwFlashbang
     PLAYER.cwFlashbang = function( self, intensity, duration )
-        local inPvp = ply:GetNWBool( "CFC_PvP_Mode", false )
-        if not inPvp then return end
+        if not ply:isInPvp() then return end
 
         return flash( self, intensity, duration )
     end
